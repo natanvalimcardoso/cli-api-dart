@@ -21,13 +21,13 @@ class Courses {
 
   factory Courses.fromMap(Map<String, dynamic> map) {
     return Courses(
-      id: map['id'] as int,
-      name: map['name'] as String,
-      isStudent: map['isStudent'] as bool,
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
+      isStudent: map['isStudent'] ?? false,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Courses.fromJson(String source) => Courses.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Courses.fromJson(String source) => Courses.fromMap(json.decode(source));
 }
