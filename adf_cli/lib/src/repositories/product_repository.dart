@@ -1,22 +1,19 @@
-import 'dart:convert';
+import 'package:dio/dio.dart';
 
-import 'package:adf_cli/src/models/courses.dart';
-import 'package:http/http.dart' as http;
+import '../models/courses.dart';
 
 class ProductRepository {
-    Future<Courses> findByName(String name) async {
-      final response = await http.get(Uri.parse('http://localhost:8080/products?name=$name'));
+  Future<Courses> findByName(String name) async {
+    try {
+      final response = await Dio().get('http://localhost:8080/products', queryParameters: {'name': name},);
 
-      if (response.statusCode != 200) {
-        throw Exception();
+      if (response.data.isEmpty) {
+        throw Exception('Produto não encontrado!');
       }
 
-      final responseData = jsonDecode(response.body);
-
-      if (responseData.isEmpty) {
-        throw Exception('Produto não encontrado');
-      }
-
-      return Courses.fromMap(responseData.firts);
+      return Courses.fromMap(response.data.first);
+    } on DioError {
+      throw Exception();
     }
+  }
 }

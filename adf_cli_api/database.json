@@ -1,4 +1,3 @@
-
 {
     "users": [
         {
@@ -121,6 +120,51 @@
                 "phone": {
                     "ddd": 11,
                     "phone": "985755556"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "neytanzi",
+            "age": 29,
+            "nameCourses": [
+                "Academia Flutter",
+                "Jornada GetX",
+                "Jornada Clean Code"
+            ],
+            "courses": [
+                {
+                    "id": 1,
+                    "name": "Academia do Flutter",
+                    "isStudent": true
+                },
+                {
+                    "id": 2,
+                    "name": "Jornada GetX",
+                    "isStudent": true
+                },
+                {
+                    "id": 3,
+                    "name": "Jornada Clean Code",
+                    "isStudent": true
+                },
+                {
+                    "id": 4,
+                    "name": "Jornada Arquitetura",
+                    "isStudent": false
+                }
+            ],
+            "address": {
+                "street": "Rua X",
+                "number": 200,
+                "zipCode": "0915225222",
+                "city": {
+                    "id": 1,
+                    "name": "Santo André"
+                },
+                "phone": {
+                    "ddd": 11,
+                    "phone": "985755555"
                 }
             }
         }
